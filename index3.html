@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        *::after {
+            box-sizing: border-box;
+        }
+
+        *::before {
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            border: 1px solid green;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #FFE600;
+        }
+
+        .wrapper {
+            position: relative;
+            width: 100%;
+            height: 165px;
+            /* border: 1px solid red; */
+        }
+
+        .nose {
+            overflow: hidden;
+            position: absolute;
+            top: 32px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            /* background: black; */
+            /* border-radius: 20px; */
+            /* border: 11px solid; */
+            /* border-color: black transparent transparent transparent; */
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 13px solid black;
+            border-top-left-radius: 16px;
+            border-top-right-radius: 16px;
+        }
+
+        .eye {
+            width: 49px;
+            height: 49px;
+            background: #2e2e2eee;
+            border-radius: 50%;
+            /* position: absolute; */
+            /* left: 50%; */
+            border: 2px solid #000000;
+        }
+
+        .eye::before {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 24px;
+            background: white;
+            border-radius: 50%;
+            position: relative;
+            left: 6px;
+            border: 2px solid #000;
+            /* top: 1px; */
+        }
+
+        .face {
+            width: 68px;
+            height: 68px;
+            background: #FC0D1C;
+            border: 2px solid black;
+            border-radius: 50%;
+            position: absolute;
+            top: 85px;
+        }
+
+        .face.left {
+            right: 50%;
+            margin-right: 116px;
+        }
+
+        .face.right {
+            left: 50%;
+            margin-left: 116px;
+        }
+
+        .upperLip {
+            height: 25px;
+            width: 74px;
+            border: 3px solid black;
+            position: absolute;
+            border-top: none;
+            background-color: #FEE433;
+        }
+
+        .upperLip.left {
+            right: 50%;
+            top: 52px;
+            /* border-radius: 0 15px/10px; */
+            border-bottom-left-radius: 40px 30px;
+            transform: rotate(-20deg);
+            border-right: none;
+        }
+
+        .upperLip.right {
+            left: 50%;
+            top: 52px;
+            /* border-radius: 0 15px/10px; */
+            border-bottom-right-radius: 40px 30px;
+            transform: rotate(20deg);
+            border-left: none;
+        }
+
+        .lowerLip-wrapper {
+            position: absolute;
+            bottom: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: -1;
+            height: 134px;
+            width: 300px;
+            overflow: hidden;
+        }
+
+        .lowerLip {
+            width: 300px;
+            height: 3500px;
+            /* background-color: #FC4A62; */
+            background-color: #990513;
+            border-radius: 200px/2000px;
+            border: 3px solid black;
+            position: absolute;
+            bottom: 0;
+            overflow: hidden;
+        }
+
+        .lowerLip::after {
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 100px;
+            background: #FC4A62;
+            border-radius: 539px/334px;
+
+        }
+
+
+        @media only screen and (max-width: 500px) {
+            .eye {
+                position: absolute;
+            }
+
+            .eye.left {
+                left: 23%;
+            }
+
+            .eye.right {
+                right: 23%;
+            }
+        }
+
+        @media only screen and (min-width: 500px) {
+            .eyes {
+                margin: 0 auto;
+                width: 420px;
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="nose"></div>
+        <div class="eyes">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+        </div>
+        <div class="face left"></div>
+        <div class="face right">
+            <!-- <img class="shock-left" src="http://www.megghy.com/gif_animate/natura/tuoni/3.gif"> -->
+        </div>
+        <div class="upperLip left"></div>
+        <div class="upperLip right"></div>
+        <div class="lowerLip-wrapper">
+            <div class="lowerLip"></div>
+        </div>
+    </div>
+</body>
+
+</html>
