@@ -1,21 +1,32 @@
 !function () {
     let duration = 20
+    let timer
     const btns = document.querySelector('.actions').getElementsByTagName('button')
     for (let item of btns) {
         addClickEvent(item, () => {
-            for (let elem of btns) {
-                elem.classList.remove('active')
+            const speed = item.getAttribute('data-speed')
+            if (speed !== 'reset') {
+                for (let elem of btns) {
+                    elem.classList.remove('active')
+                }
+                item.className = 'active'
             }
-            item.className = 'active'
             switch (item.getAttribute('data-speed')) {
                 case 'slow':
-                    duration = 100
+                    if (duration < 100) {
+                        duration += 5
+                    }
                     break;
                 case 'normal':
                     duration = 20
                     break;
                 case 'fast':
-                    duration = 10
+                    if (duration > 5) {
+                        duration -= 5
+                    }
+                    break;
+                case 'reset':
+                    writeCode('', code)
                     break;
                 default:
                     break
@@ -27,14 +38,22 @@
         let container = document.querySelector('#code')
         let styleTag = document.querySelector('#styleTag')
         let n = 0
-        const timer = setTimeout(function run() {
+        if (timer) {
+            clearTimeout(timer)
+        }
+        timer = setTimeout(function run() {
             n += 1
             container.innerHTML = code.substring(0, n)
             styleTag.innerHTML = code.substring(0, n)
             container.scrollTop = container.scrollHeight
+            document.querySelector('.rate').innerHTML = `
+            <p>进度:${(n / code.length * 100) | 0}%</p>
+            <p>延迟:${duration}ms</p>
+            `
             if (n < code.length) {
-                setTimeout(run, duration)
-            } else {
+                timer = setTimeout(run, duration)
+            }
+            else {
                 fn?.call()
             }
         }, duration)
@@ -45,7 +64,7 @@
     */
     .preview {
         height: 100%;
-        border: 1px solid green;
+        // border: 1px solid green;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -152,7 +171,7 @@
         border: 3px solid black;
         position: absolute;
         border-top: none;
-        background-color: #FEE433;
+        background-color: #FFE600;
     }
     
     .upperLip.left {
