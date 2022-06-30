@@ -76,14 +76,15 @@
         height: 165px;
     }
     /* 
-    *  接着，点上皮卡丘的鼻子
+    *  接着，安上皮卡丘的鼻子
     */
     .nose {
         overflow: hidden;
         position: absolute;
         top: 32px;
         left: 50%;
-        transform: translate(-50%, -50%);
+        // transform: translate(-50%, -50%);
+        margin-left: -14px;
         width: 0;
         height: 0;
         border-left: 14px solid transparent;
@@ -227,8 +228,11 @@
         height: 100px;
         background: #FC4A62;
         border-radius: 539px/334px;
-    
-    }`
+    }
+    /* 
+    * 好了，这只皮卡丘送给你！(鼠标放在鼻子上有彩蛋哦)
+    */
+    `
     writeCode('', code)
 }.call()
 

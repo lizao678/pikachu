@@ -70,3 +70,81 @@ body{
 .actions>button.active{
     background-color: rgba(0, 102, 255, 0.082);
 }
+
+.nose:hover {
+    -webkit-animation: nose .23s infinite linear;
+    -moz-animation: nose .23s infinite;
+    -ms-animation: nose .23s infinite;
+    animation: nose .23s infinite linear;
+}
+@-webkit-keyframes nose {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+
+    33% {
+        -webkit-transform: rotate(-5deg);
+    }
+
+    67% {
+        -webkit-transform: rotate(5deg);
+    }
+
+    100% {
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@-moz-keyframes nose {
+    0% {
+        -moz-transform: rotate(0deg);
+    }
+
+    33% {
+        -moz-transform: rotate(-5deg);
+    }
+
+    67% {
+        -moz-transform: rotate(5deg);
+    }
+
+    100% {
+        -moz-transform: rotate(0deg);
+    }
+}
+
+@-ms-keyframes nose {
+    0% {
+        -ms-transform: rotate(0deg);
+    }
+
+    33% {
+        -ms-transform: rotate(-5deg);
+    }
+
+    67% {
+        -ms-transform: rotate(5deg);
+    }
+
+    100% {
+        -ms-transform: rotate(0deg);
+    }
+}
+
+@keyframes nose {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    33% {
+        transform: rotate(-5deg);
+    }
+
+    67% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
